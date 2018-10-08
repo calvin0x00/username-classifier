@@ -1,10 +1,11 @@
 # username-classifier
 
-Kind of user name (ID) classifying.  i.e. mobile number, email, UUID, serial number, username
+This package provides user name (ID) classifying and confidence level of classified results (ex. mobile number, email, UUID, serial number, username).  It could be used in App' login page for "multi kinds of ID login/key-in by one input box" design.
+
 
 ## Installation
 **Install by npm**
-```console
+```
 npm install username-classifier
 ```
 
@@ -13,7 +14,7 @@ npm install username-classifier
 var classify = require('username-classifier').classify
 ```
 
-## Supported kind of username and formats
+## Supported kind of usernames and formats
 
 | Kind of username | Label | Example  |
 | ---------------- | ----- | -------- |
@@ -30,7 +31,7 @@ var classify = require('username-classifier').classify
 
 ## Methods
 ### classify
-Get the result of username classifying with confidence levels (0~100)%
+Get the result of username classifying with confidence levels (0~100)% of each kind (label)
 
 #### Example: Get classified results of usernames
 
@@ -40,7 +41,7 @@ let username = process.argv[2]
 
 classify(username)
   .then(classified => {
-  	console.log(classified)//JSON.stringify(info, null, 3))
+  	console.log(classified)
   })
   .catch(error => {console.log(error)})
 ```
@@ -62,7 +63,8 @@ classify(username)
 ```
 
 **Result of username "0011aabb@allen"** 
-*The "0 confidence" labes have been dropped on following results*
+
+*The "0 confidence" labes have been dropped on following results.*
 ```javascript
 { classified:
    [ { label: 'hex string', confidence: 57 },
@@ -72,7 +74,8 @@ classify(username)
 ```
 
 **Result of username "0011aabb"** 
-*The "0 confidence" labes have been dropped on following results*
+
+*The "0 confidence" labes have been dropped on following results.*
 ```javascript
 { classified:
    [ { label: 'hex string', confidence: 100 },
