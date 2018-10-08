@@ -1,0 +1,19 @@
+{
+  "name": "username-classifier",
+  "version": "0.0.1",
+  "description": "Kind of user name (ID) classifying.  i.e. mobile number, email, UUID, serial number, username",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/calvin0x00/username-classifier.git"
+  },
+  "author": "Calvin",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/calvin0x00/username-classifier/issues"
+  },
+  "homepage": "https://github.com/calvin0x00/username-classifier#readme"
+}
