@@ -1,6 +1,6 @@
 {
   "name": "username-classifier",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Kind of user name (ID) classifying.  i.e. mobile number, email, UUID, serial number, username",
   "main": "index.js",
   "scripts": {
