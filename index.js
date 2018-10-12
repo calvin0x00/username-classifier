@@ -15,7 +15,7 @@ const usernameKinds = [
 		// Ref: https://stackoverflow.com/a/6640851
 		re: /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}/,
 	},
-	{label: 'dec s/n', re: /^0$|^[1-9]+/},
+	{label: 'dec /sn', re: /^0$|^[1-9]+/},
 
 	{label: 'hex s/n', re: /^0$|^[1-9a-f]+/},
 	{label: 'hex string', re: /^([0-9a-f]{2})+/},
@@ -26,6 +26,11 @@ const usernameKinds = [
 
 async function classify(username){
   return new Promise((resolve, reject) => {
+  	if((typeof username) != 'string')
+      return reject('type of username must be a string')
+  	else if(username.length == 0)
+  	  return reject('length of username must be greater than 0')
+
   	let classified = Object()
   	classified['classified'] = Array()
 		classified['username'] = username
@@ -35,7 +40,7 @@ async function classify(username){
 			let match = username.match(kind.re)
 			let confidence = 0
 
-			if(match)
+			if(match && username.length > 0 )
 			    confidence = parseInt((match[0].length/username.length) * 100)
 
 			classified['classified'].push({
